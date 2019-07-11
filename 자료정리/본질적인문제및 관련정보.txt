@@ -1,0 +1,43 @@
+전처리 정리 http://jtoday.tistory.com/94
+
+########문제1. 결측치가 많음
+
+http://blog.naver.com/PostView.nhn?blogId=tjdudwo93&logNo=220976082118
+
+(근거가 필요함) 
+-제거 
+-추론 (mice, 기타 통계값..)
+
+->train의 재무제표 결측치를 가지는 행 제거/ 그리고 나머지 결측치는 mice
+->test의 OC열 제거/ 재무제표를 임의로 채운 후 mice는 의미X ,따라서 전부 mice (근데 이 경우 NA 6개가 지워지지 않음 따라서, 제무재표를 0으로 채운후 나머지 mice함.)  ##nona921
+
+
+
+
+#######문제2. 데이터가 작음 -> 오버피팅/ 이상치 /Noise의 문제 
+  
+https://medium.com/rants-on-machine-learning/what-to-do-with-small-data-d253254d1a89
+
+- 통계 전문지식
+- 간단한 모델에 충실 
+(더 정확하게 말하면, 제한된 가설을 고수/너무 많은 매개 변수 X, )
+- 실험 제한 :validation을 너무 믿지마라.
+- 데이터정제 : 데이터가 적은 경우 특히, noise와 이상치에 민감하다
+- feature selection :(명시적 기능선택 필요)
+- 정규화 :일반적으로 L2가 L1보다 좋음
+- model averaging 사용 : bagging/베이지안 모델 평균이 합리적
+- 베이지안 추천.(특히 도메인을 바탕으로 좋은 변수를 구성한다면)
+- 예측에 대한 신뢰도를 얻어라
+
+(tree - no scale
+ linear - scale )
+
+
+
+####문제3. unbalance한 데이터
+https://www.markhw.com/blog/2017/12/6/a-monte-carlo-study-on-methods-for-handling-class-imbalance-in-machine-learning
+
+https://static1.squarespace.com/static/58a7d1e52994ca398697a621/t/5a2833cec83025cca6b99ff8/1512584144990/manuscript.pdf
+
+resampling( 일반적) - 우리의 경우 oversampling (SMOTE ,ROSE)
+cost-sensitive learning (misclassfication cost)
